@@ -49,7 +49,7 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
     }
 
     const mediaConnection = peer.call(remoteId.value, localStream);
-    const dataConnection = peer.connect("peerID");
+    const dataConnection = peer.connect(remoteId.value);
 
     mediaConnection.on('stream', async stream => {
       // Render remote stream for caller
