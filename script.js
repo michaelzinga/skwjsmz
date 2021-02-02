@@ -50,12 +50,16 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
 
     const mediaConnection = peer.call(remoteId.value, localStream);
     const dataConnection = peer.connect("peerID");
-    console.log("コネクト完了");
+
     mediaConnection.on('stream', async stream => {
       // Render remote stream for caller
       remoteVideo.srcObject = stream;
       remoteVideo.playsInline = true;
       await remoteVideo.play().catch(console.error);
+    });
+
+    dataConnection.on("open", () => {
+      console.log("データコネクション接続完了");
     });
 
     mediaConnection.once('close', () => {
