@@ -38,6 +38,7 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
+  console.log("これはテスト");
 
   // Register caller handler
   callTrigger.addEventListener('click', () => {
@@ -49,7 +50,7 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
 
     const mediaConnection = peer.call(remoteId.value, localStream);
     const dataConnection = peer.connect("peerID");
-
+    console.log("コネクト完了");
     mediaConnection.on('stream', async stream => {
       // Render remote stream for caller
       remoteVideo.srcObject = stream;
@@ -86,7 +87,7 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
     closeTrigger.addEventListener('click', () => mediaConnection.close(true));
   });
   peer.on("connection", (dataConnection) => {
-    console.log("コネクト完了");
+    console.log("受信準備完了");
     dataConnection.on("data", ({ name, msg }) => {
     console.log(`${name}: ${msg}`);
     // => 'SkyWay: Hello, World!'
