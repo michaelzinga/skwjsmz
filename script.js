@@ -48,6 +48,7 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
     }
 
     const mediaConnection = peer.call(remoteId.value, localStream);
+    const dataConnection = peer.connect("peerID");
 
     mediaConnection.on('stream', async stream => {
       // Render remote stream for caller
@@ -83,6 +84,15 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
     });
 
     closeTrigger.addEventListener('click', () => mediaConnection.close(true));
+  });
+  peer.on("connection", (dataConnection) => {
+    console.log("コネクト完了");
+    dataConnection.on("data", ({ name, msg }) => {
+    console.log(`${name}: ${msg}`);
+    // => 'SkyWay: Hello, World!'
+    });
+
+
   });
 
   peer.on('error', console.error);
