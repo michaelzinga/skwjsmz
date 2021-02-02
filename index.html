@@ -80,9 +80,12 @@ const setEventListener = mediaConnection => {
 peer.on('call', mediaConnection => {
   mediaConnection.answer(localStream);
   setEventListener(mediaConnection);
-  setEventListener(dataConnection);
-
 });
+
+peer.on("connection", (dataConnection) => {
+    console.log("受信準備完了");
+    setEventListener(dataConnection);
+    });
       
 </script>
   </body>
