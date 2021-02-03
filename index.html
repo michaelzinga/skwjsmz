@@ -96,26 +96,23 @@ peer.on("connection", (dataConnection) => {
 
     console.log("受信完了");
    
-    if (dataConnection.open) {
-      console.log("RTCPeerConnection取得完了");
-  const pc = dataConnection.getPeerConnection();
+ 
+    dataConnection.on('open', () => {
+    console.log("データチャネルが接続されました")
+    });
 
-dataConnection.on('open', () => {
-  console.log("データチャネルが接続されました")
-});
+    dataConnection.on('data', data => {
+    console.log("接続先のPeerからデータを受信しました",data)
+    });
 
-dataConnection.on('data', data => {
-  console.log("接続先のPeerからデータを受信しました")
-});
-
-dataConnection.on("data", ({ name, msg }) => {
+    dataConnection.on("data", ({ name, msg }) => {
     console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`); 
-  })
+    });
 
-dataConnection.on('error', () => {
-  console.log("データチャネルが接続されていません")
-});
-}
+    dataConnection.on('error', () => {
+    console.log("データチャネルが接続されていません")
+    });
+  
     
 });
 
