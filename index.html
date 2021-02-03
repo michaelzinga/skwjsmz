@@ -96,10 +96,8 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
     console.log("受信完了");
-    
-});
-
-if (dataConnection.open) {
+   
+    if (dataConnection.open) {
   const pc = dataConnection.getPeerConnection();
 
 dataConnection.on('open', () => {
@@ -114,6 +112,10 @@ dataConnection.on('error', () => {
   console.log("データチャネルが接続されていません")
 });
 }
+    
+});
+
+
 
 </script>
   </body>
