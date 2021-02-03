@@ -77,8 +77,9 @@ const setEventListener = mediaConnection => {
     videoElm.srcObject = stream;
     videoElm.play();
   });
-  dataConnection.on("data", ({ msg }) => {
-    console.log("データコネクションで受け取ったデータ",`${msg}`);
+  dataConnection.on("data", ({data}) => {
+    console.log("データコネクションで受け取ったデータ",data);
+    // var Cdata = data
     setEventListener(dataConnection);
     });
 }
