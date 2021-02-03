@@ -76,13 +76,12 @@ const setEventListener = mediaConnection => {
     const videoElm = document.getElementById('their-video')
     videoElm.srcObject = stream;
     videoElm.play();
-  
-    dataConnection.on("data", ({ name, msg }) => {
-    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);    
-  });
-  
-  });
+  })
 
+  dataConnection.on("data", ({ name, msg }) => {
+    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);    
+  })
+  
 }
 
 //着信処理
