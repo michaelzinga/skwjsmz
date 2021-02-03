@@ -84,13 +84,16 @@ const setEventListener = mediaConnection => {
 
 //着信処理
 peer.on('call', mediaConnection => {
-  const dataConnection = peer.connect(remoteId.value);
+  
   mediaConnection.answer(localStream);
   setEventListener(mediaConnection);
-  setEventListener(dataConnection);
+
 });
 
 peer.on("connection", (dataConnection) => {
+  const dataConnection = peer.connect(remoteId.value);
+
+  setEventListener(dataConnection);
     console.log("受信完了");
     dataConnection.on("data", ({ name, msg }) => {
     console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);    
