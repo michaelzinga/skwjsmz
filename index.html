@@ -76,13 +76,17 @@ const setEventListener = mediaConnection => {
     const videoElm = document.getElementById('their-video')
     videoElm.srcObject = stream;
     videoElm.play();
+  
   });
+}
+const setEventListener = mediaConnection => {
   dataConnection.on("data", ({ name, msg }) => {
     console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);
     setEventListener(dataConnection);
     
   });
 }
+
 //着信処理
 peer.on('call', mediaConnection => {
   mediaConnection.answer(localStream);
