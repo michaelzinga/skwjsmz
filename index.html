@@ -72,6 +72,7 @@ document.getElementById('make-call').onclick = () => {
 // イベントリスナを設置する関数
 const setEventListener = mediaConnection => {
   mediaConnection.on('stream', stream => {
+    console.log("メディア受信完了");
     // video要素にカメラ映像をセットして再生
     const videoElm = document.getElementById('their-video')
     videoElm.srcObject = stream;
@@ -92,7 +93,7 @@ peer.on('call', mediaConnection => {
 });
 
 peer.on("connection", (dataConnection) => {
-    console.log("受信準備完了");
+    console.log("受信完了");
 
 });
 
