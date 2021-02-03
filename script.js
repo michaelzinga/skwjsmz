@@ -93,7 +93,7 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
   peer.on("connection", (dataConnection) => {
     console.log("受信準備完了");
     dataConnection.on("data", ({ name, msg }) => {
-    console.log(`${name}: ${msg}`);
+    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);
     // => 'SkyWay: Hello, World!'
     });
 
