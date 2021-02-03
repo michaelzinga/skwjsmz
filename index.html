@@ -64,9 +64,8 @@
 document.getElementById('make-call').onclick = () => {
   const theirID = document.getElementById('their-id').value;
   const mediaConnection = peer.call(theirID, localStream);
-  const dataConnection = peer.connect(remoteId.value);
   setEventListener(mediaConnection);
-  setEventListener(dataConnection);
+
 };
 
 // イベントリスナを設置する関数
@@ -88,8 +87,10 @@ const setEventListener = mediaConnection => {
 
 //着信処理
 peer.on('call', mediaConnection => {
+  const dataConnection = peer.connect(remoteId.value);
   mediaConnection.answer(localStream);
   setEventListener(mediaConnection);
+  setEventListener(dataConnection);
 });
 
 peer.on("connection", (dataConnection) => {
