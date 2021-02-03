@@ -64,7 +64,7 @@
 document.getElementById('make-call').onclick = () => {
   const theirID = document.getElementById('their-id').value;
   const mediaConnection = peer.call(theirID, localStream);
-  const dataConnection = peer.connect(theirID);
+  const dataConnection = peer.connect(theirID.dataConnection);
   setEventListener(mediaConnection);
   setEventListener(dataConnection);
 
@@ -80,14 +80,15 @@ const setEventListener = mediaConnection => {
     videoElm.play();
     
   })
-
-}
-const setEventListener = dataConnection => {
   dataConnection.on("data", ({ name, msg }) => {
-    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);    
+    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`); 
   })
 
 }
+
+     
+
+
 
 //着信処理
 peer.on('call', mediaConnection => {
