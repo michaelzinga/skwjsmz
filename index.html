@@ -97,6 +97,7 @@ peer.on("connection", (dataConnection) => {
     console.log("受信完了");
    
     if (dataConnection.open) {
+      console.log("RTCPeerConnection取得完了");
   const pc = dataConnection.getPeerConnection();
 
 dataConnection.on('open', () => {
