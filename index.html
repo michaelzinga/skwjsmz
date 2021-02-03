@@ -79,11 +79,9 @@ const setEventListener = mediaConnection => {
     dataConnection.on("data", ({ name, msg }) => {
     console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);    
   })
-  });
+  })
 
 }
-
-  
 
 //着信処理
 peer.on('call', mediaConnection => {
