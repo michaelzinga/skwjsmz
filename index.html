@@ -10,6 +10,7 @@
   <body>
     <video id="my-video" width="400px" autoplay muted playsinline></video>
      <p id="my-id"></p>
+     <script>console.log("データコネクションはこれ",dataConnection)</script>
      <textarea id="their-id"></textarea>
      <button id="make-call">発信</button>
     <video id="their-video" width="400px" autoplay muted playsinline></video>
@@ -64,6 +65,7 @@
 document.getElementById('make-call').onclick = () => {
   const theirID = document.getElementById('their-id').value;
   const mediaConnection = peer.call(theirID, localStream);
+  const dataConnection = peer.connect(remoteId.value);
   setEventListener(mediaConnection);
 };
 
