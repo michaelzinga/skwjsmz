@@ -64,7 +64,7 @@
 document.getElementById('make-call').onclick = () => {
   const theirID = document.getElementById('their-id').value;
   const mediaConnection = peer.call(theirID, localStream);
-  const dataConnection = peer.connect(theirID.dataConnection);
+  const dataConnection = peer.connect(theirID);
   setEventListener(mediaConnection);
   setEventListener(dataConnection);
 
@@ -85,8 +85,17 @@ const setEventListener = mediaConnection => {
   })
 
 }
+dataConnection.on('open', () => {
+  console.log("データチャネルが接続されました")
+});
 
-     
+dataConnection.on('data', data => {
+  console.log("接続先のPeerからデータを受信しました")
+});
+
+dataConnection.on('error', () => {
+  console.log("データチャネルが接続されていません")
+});
 
 
 
