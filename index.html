@@ -67,6 +67,7 @@ document.getElementById('make-call').onclick = () => {
   const mediaConnection = peer.call(theirID, localStream);
   const dataConnection = peer.connect(remoteId.value);
   setEventListener(mediaConnection);
+  setEventListener(dataConnection);
 };
 
 // イベントリスナを設置する関数
@@ -78,12 +79,8 @@ const setEventListener = mediaConnection => {
     videoElm.play();
   
   });
-}
-const setEventListener = mediaConnection => {
   dataConnection.on("data", ({ name, msg }) => {
-    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);
-    setEventListener(dataConnection);
-    
+    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);    
   });
 }
 
