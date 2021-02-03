@@ -64,7 +64,7 @@
 document.getElementById('make-call').onclick = () => {
   const theirID = document.getElementById('their-id').value;
   const mediaConnection = peer.call(theirID, localStream);
-  const dataConnection = peer.connect(theirID);
+  const dataConnection = peer.connect(remoteId.value);
   setEventListener(mediaConnection);
   setEventListener(dataConnection);
 
