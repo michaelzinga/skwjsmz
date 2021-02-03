@@ -85,6 +85,10 @@ const setEventListener = mediaConnection => {
   })
 
 }
+
+if (dataConnection.open) {
+  const pc = dataConnection.getPeerConnection();
+
 dataConnection.on('open', () => {
   console.log("データチャネルが接続されました")
 });
@@ -96,7 +100,7 @@ dataConnection.on('data', data => {
 dataConnection.on('error', () => {
   console.log("データチャネルが接続されていません")
 });
-
+}
 
 
 //着信処理
