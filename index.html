@@ -86,6 +86,19 @@ const setEventListener = mediaConnection => {
 
 }
 
+//着信処理
+peer.on('call', mediaConnection => {
+  
+  mediaConnection.answer(localStream);
+  setEventListener(mediaConnection);
+  setEventListener(dataConnection);
+});
+
+peer.on("connection", (dataConnection) => {
+    console.log("受信完了");
+    
+});
+
 if (dataConnection.open) {
   const pc = dataConnection.getPeerConnection();
 
@@ -101,20 +114,6 @@ dataConnection.on('error', () => {
   console.log("データチャネルが接続されていません")
 });
 }
-
-
-//着信処理
-peer.on('call', mediaConnection => {
-  
-  mediaConnection.answer(localStream);
-  setEventListener(mediaConnection);
-  setEventListener(dataConnection);
-});
-
-peer.on("connection", (dataConnection) => {
-    console.log("受信完了");
-    
-});
 
 </script>
   </body>
