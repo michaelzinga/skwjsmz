@@ -86,9 +86,14 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
     console.log("受信準備完了");
+    dataConnection.on("data", ({ name, msg }) => {
+    console.log(`${name}: ${msg}`);
     setEventListener(dataConnection);
     });
       
+  });
+
 </script>
   </body>
 </html>
+
