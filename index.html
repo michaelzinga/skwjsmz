@@ -76,13 +76,11 @@ const setEventListener = mediaConnection => {
     const videoElm = document.getElementById('their-video')
     videoElm.srcObject = stream;
     videoElm.play();
-  })
+  });
 
-  dataConnection.on("data", ({ name, msg }) => {
-    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);    
-  })
-  
 }
+
+  
 
 //着信処理
 peer.on('call', mediaConnection => {
@@ -94,7 +92,9 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
     console.log("受信完了");
-
+    dataConnection.on("data", ({ name, msg }) => {
+    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`);    
+  })
 });
 
 </script>
