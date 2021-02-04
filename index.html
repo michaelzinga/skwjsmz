@@ -23,6 +23,12 @@
           mapTypeId: 'roadmap'   //地図の種類
         };
       var map = new google.maps.Map(document.getElementById('map'), Options);
+      var marker = new google.maps.Marker({
+          position: map.getCenter(),
+          map: map,
+          title: "Empire !",
+          animation: google.maps.Animation.DROP
+        });
     </script> 
     <video id="my-video" width="400px" autoplay muted playsinline></video>
      <p id="my-id"></p>
