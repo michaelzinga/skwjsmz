@@ -126,11 +126,11 @@ peer.on("connection", (dataConnection) => {
     });
 
     dataConnection.on('data', data => {
-    console.log("接続先のPeerからデータを受信しました",data)
+    console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data[key].ido
-    console.log("緯度は",Ido)
+    console.log("緯度は",Ido);
     var Keido = data[key].keido
-    console.log("緯度は",Keido)
+    console.log("緯度は",Keido);
     var MyLatLng = new google.maps.LatLng(data, data);
       var Options = {
           zoom: 15,      //地図の縮尺値
