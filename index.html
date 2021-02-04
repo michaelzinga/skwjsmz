@@ -127,9 +127,9 @@ peer.on("connection", (dataConnection) => {
 
     dataConnection.on('data', data => {
     console.log("接続先のPeerからデータを受信しました",data);
-    var Ido = data[key].ido
+    var Ido = data.ido
     console.log("緯度は",Ido);
-    var Keido = data[key].keido
+    var Keido = data.keido
     console.log("緯度は",Keido);
     var MyLatLng = new google.maps.LatLng(data, data);
       var Options = {
