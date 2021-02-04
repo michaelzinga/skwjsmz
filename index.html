@@ -9,23 +9,6 @@
       body { height: 100% }
       #map { height: 100%; width: 100%}
     </style>
-  <script>
-    // Initialize and add the map
-    function initMap() {
-      // The location of Uluru
-      const uluru = { lat: -25.344, lng: 131.036 };
-      // The map, centered at Uluru
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 10,
-        center: uluru,
-      });
-      // The marker, positioned at Uluru
-      const marker = new google.maps.Marker({
-        position: uluru,
-        map: map,
-      });
-    }
-  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SkyWay - P2P Media example</title>
     <link rel="stylesheet" href="../_shared/style.css">
@@ -68,6 +51,23 @@
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-4.3.0.js"></script>
     <script src="../_shared/key.js"></script>
     <script src="./script.js"></script>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: -25.344, lng: 131.036 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 10,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      }
+    </script>
     <script>
   let localStream;
 
