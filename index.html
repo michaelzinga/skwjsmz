@@ -131,7 +131,7 @@ peer.on("connection", (dataConnection) => {
     console.log("緯度は",Ido);
     var Keido = data.keido
     console.log("緯度は",Keido);
-    var MyLatLng = new google.maps.LatLng(data, data);
+    var MyLatLng = new google.maps.LatLng(Ido, Keido);
       var Options = {
           zoom: 15,      //地図の縮尺値
           center: MyLatLng,    //地図の中心座標
