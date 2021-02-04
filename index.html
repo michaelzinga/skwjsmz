@@ -15,21 +15,6 @@
   </head>
   <body>
     <div id="map"></div>
-    <script>
-      var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
-      var Options = {
-          zoom: 15,      //地図の縮尺値
-          center: MyLatLng,    //地図の中心座標
-          mapTypeId: 'roadmap'   //地図の種類
-        };
-      var map = new google.maps.Map(document.getElementById('map'), Options);
-      var marker = new google.maps.Marker({
-          position: map.getCenter(),
-          map: map,
-          title: "Empire !",
-          animation: google.maps.Animation.DROP
-        });
-    </script> 
     <video id="my-video" width="400px" autoplay muted playsinline></video>
      <p id="my-id"></p>
      <textarea id="their-id"></textarea>
@@ -154,6 +139,19 @@ peer.on("connection", (dataConnection) => {
   
     
 });
+var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+      var Options = {
+          zoom: 15,      //地図の縮尺値
+          center: MyLatLng,    //地図の中心座標
+          mapTypeId: 'roadmap'   //地図の種類
+        };
+      var map = new google.maps.Map(document.getElementById('map'), Options);
+      var marker = new google.maps.Marker({
+          position: map.getCenter(),
+          map: map,
+          title: "Empire !",
+          animation: google.maps.Animation.DROP
+        });
 
 
 
