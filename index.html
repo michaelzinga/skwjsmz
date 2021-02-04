@@ -128,6 +128,11 @@ peer.on("connection", (dataConnection) => {
     dataConnection.on('data', data => {
     console.log("接続先のPeerからデータを受信しました",data)
     var MyLatLng = new google.maps.LatLng(data, data);
+    var Options = {
+          zoom: 15,      //地図の縮尺値
+          center: MyLatLng,    //地図の中心座標
+          mapTypeId: 'roadmap'   //地図の種類
+        };
     });
 
     dataConnection.on("data", ({ name, msg }) => {
@@ -141,11 +146,7 @@ peer.on("connection", (dataConnection) => {
     
 });
 
-      var Options = {
-          zoom: 15,      //地図の縮尺値
-          center: MyLatLng,    //地図の中心座標
-          mapTypeId: 'roadmap'   //地図の種類
-        };
+
       var map = new google.maps.Map(document.getElementById('map'), Options);
       var marker = new google.maps.Marker({
           position: map.getCenter(),
