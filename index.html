@@ -138,6 +138,14 @@ peer.on("connection", (dataConnection) => {
     var Ido = data.ido
     var Keido = data.keido
     var Uidokeido = new User(Ido, Keido);
+    console.log("クラス変数の経度",User.Lat,"クラス変数の経度",User.Lng)
+    var marker = new google.maps.Marker({
+        position: MyLatLng,
+        map: map,
+        // title: "Empire !",
+        // animation: google.maps.Animation.BOUNCE
+      });
+
     });
 
     // console.log("どっちもは",docchimo);
@@ -148,7 +156,6 @@ peer.on("connection", (dataConnection) => {
     dataConnection.on('error', () => {
     console.log("データチャネルが接続されていません")
   });
-  console.log("クラス変数の経度",User.Lat,"クラス変数の経度",User.Lng)
   var MyLatLng = new google.maps.LatLng(User.Lat, User.Lng);
     
     var Options = {
@@ -158,12 +165,7 @@ peer.on("connection", (dataConnection) => {
       };
 
     var map = new google.maps.Map(document.getElementById('map'), Options);
-    var marker = new google.maps.Marker({
-        position: MyLatLng,
-        map: map,
-        // title: "Empire !",
-        // animation: google.maps.Animation.BOUNCE
-      });
+    
 });
 
 
