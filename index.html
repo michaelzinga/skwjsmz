@@ -148,6 +148,7 @@ peer.on("connection", (dataConnection) => {
     console.log("データチャネルが接続されていません")
   });
 });
+console.log("クラス変数の経度",User.Lat,"クラス変数の経度",User.Lng)
 
 var MyLatLng = new google.maps.LatLng(User.Lat, User.Lng);
     
