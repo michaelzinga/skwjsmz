@@ -140,9 +140,10 @@ peer.on("connection", (dataConnection) => {
       };
     var map = new google.maps.Map(document.getElementById('map'), Options);
     var marker = new google.maps.Marker({
+        // position: map.getCenter(),
         map: map,
         title: "Empire !",
-        animation: google.maps.Animation.BOUNCE
+        // animation: google.maps.Animation.BOUNCE
       });
     });
 
