@@ -113,20 +113,7 @@ peer.on('call', mediaConnection => {
   setEventListener(mediaConnection);
 });
 
-class MyClass{
 
-propA=0;
-propB=10;
-
-constructor(){
-  this.init();
-}
-init(){
-  //メンバ変数を使って足し算する
-  var num=this.propA+this.propB;
-}
-
-}
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
