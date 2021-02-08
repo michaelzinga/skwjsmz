@@ -113,6 +113,16 @@ peer.on('call', mediaConnection => {
   setEventListener(mediaConnection);
 });
 
+class User {
+
+constructor( Lat, Lng ) {
+    this.Lat = Lat;
+    this.Lng = Lng;
+}
+
+}
+
+
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
 
@@ -126,39 +136,38 @@ peer.on("connection", (dataConnection) => {
     console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
-    var MyLatLng = new google.maps.LatLng(Ido, Keido);
+    var Uidokeido = new User(Ido, Keido);
+    });
+
+    // console.log("どっちもは",docchimo);
+    // console.log("緯度は",LocationValue.Keidovalue);
+    dataConnection.on("data", ({ name, msg }) => {
+    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`); 
+    });
+    dataConnection.on('error', () => {
+    console.log("データチャネルが接続されていません")
+
+  });
+});
+
+var MyLatLng = new google.maps.LatLng(User.Lat, User.Lng);
     
     var Options = {
         zoom: 15,      
         center: MyLatLng,    
         // mapTypeId: 'roadmap'
       };
+
     var map = new google.maps.Map(document.getElementById('map'), Options);
     var marker = new google.maps.Marker({
         position: MyLatLng,
         map: map,
         // title: "Empire !",
-        animation: google.maps.Animation.BOUNCE
+        // animation: google.maps.Animation.BOUNCE
       });
-    });
-    
-    // console.log("どっちもは",docchimo);
-    // console.log("緯度は",LocationValue.Keidovalue);
-
-    dataConnection.on("data", ({ name, msg }) => {
-    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`); 
-    });
-
-    dataConnection.on('error', () => {
-    console.log("データチャネルが接続されていません")
-    });
-  
-    
-});
-
 
 
 </script>
-  </body>
+</body>
 </html>
 
