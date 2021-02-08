@@ -132,7 +132,7 @@ peer.on("connection", (dataConnection) => {
     var Keido = data.keido
     console.log("緯度は",Keido);
     });
-    
+
     var MyLatLng = new google.maps.LatLng(Ido, Keido);
       var Options = {
           zoom: 15,      
@@ -144,7 +144,7 @@ peer.on("connection", (dataConnection) => {
           position: map.getCenter(),
           map: map,
           title: "Empire !",
-          animation: google.maps.Animation.DROP
+          animation: google.maps.Animation.BOUNCE
         });
 
     dataConnection.on("data", ({ name, msg }) => {
