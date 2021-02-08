@@ -62,11 +62,6 @@
     <script>
   let localStream;
 
-  var location = function(idoU, keidoU) {
-    this.name = name;
-    this.age  = age;
-}
-
   // カメラ映像取得
   navigator.mediaDevices.getUserMedia({video: true, audio: true})
     .then( stream => {
@@ -136,6 +131,16 @@ peer.on("connection", (dataConnection) => {
     console.log("緯度は",Ido);
     var Keido = data.keido
     console.log("緯度は",Keido);
+    var  = function(name, age) {
+    this.name = name;
+    this.age  = age;
+}
+    var MyLatLng = new google.maps.LatLng(Ido, Keido);
+      var Options = {
+          zoom: 15,      
+          center: MyLatLng,    
+          mapTypeId: 'roadmap'
+        };
       var map = new google.maps.Map(document.getElementById('map'), Options);
       var marker = new google.maps.Marker({
           position: map.getCenter(),
@@ -145,13 +150,6 @@ peer.on("connection", (dataConnection) => {
         });
 
     });
-    
-    var MyLatLng = new google.maps.LatLng(Ido, Keido);
-      var Options = {
-          zoom: 15,      
-          center: MyLatLng,    
-          mapTypeId: 'roadmap'
-        };
 
     dataConnection.on("data", ({ name, msg }) => {
     console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`); 
