@@ -146,15 +146,15 @@ peer.on("connection", (dataConnection) => {
     var Options = {
         zoom: 15,      
         center: MyLatLng,    
-        // mapTypeId: 'roadmap'
+        mapTypeId: 'roadmap'
       };
 
     var map = new google.maps.Map(document.getElementById('map'), Options);
     var marker = new google.maps.Marker({
         position: MyLatLng,
         map: map,
-        // title: "Empire !",
-        // animation: google.maps.Animation.BOUNCE
+        title: "Empire !",
+        animation: google.maps.Animation.BOUNCE
       });
     });
 
