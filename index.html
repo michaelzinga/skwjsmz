@@ -113,17 +113,18 @@ peer.on('call', mediaConnection => {
   setEventListener(mediaConnection);
 });
 
-class User {
 
-constructor( Lat, Lng ) {
-    this.Lat = Lat;
-    this.Lng = Lng;
-}
-
-}
 
 
 peer.on("connection", (dataConnection) => {
+  class User {
+
+  constructor( Lat, Lng ) {
+    this.Lat = Lat;
+    this.Lng = Lng;
+  }
+
+  }
   setEventListener(dataConnection);
 
     console.log("受信完了");
@@ -147,10 +148,8 @@ peer.on("connection", (dataConnection) => {
     dataConnection.on('error', () => {
     console.log("データチャネルが接続されていません")
   });
-});
-console.log("クラス変数の経度",User.Lat,"クラス変数の経度",User.Lng)
-
-var MyLatLng = new google.maps.LatLng(User.Lat, User.Lng);
+  console.log("クラス変数の経度",User.Lat,"クラス変数の経度",User.Lng)
+  var MyLatLng = new google.maps.LatLng(User.Lat, User.Lng);
     
     var Options = {
         zoom: 15,      
@@ -165,6 +164,9 @@ var MyLatLng = new google.maps.LatLng(User.Lat, User.Lng);
         // title: "Empire !",
         // animation: google.maps.Animation.BOUNCE
       });
+});
+
+
 </script>
 </body>
 </html>
