@@ -113,18 +113,22 @@ peer.on('call', mediaConnection => {
   setEventListener(mediaConnection);
 });
 
+class MyClass{
 
+propA=0;
+propB=10;
 
+constructor(){
+  this.init();
+}
+init(){
+  //メンバ変数を使って足し算する
+  var num=this.propA+this.propB;
+}
+
+}
 
 peer.on("connection", (dataConnection) => {
-  class User {
-
-  constructor( Lat, Lng ) {
-    this.Lat = Lat;
-    this.Lng = Lng;
-  }
-
-  }
   setEventListener(dataConnection);
 
     console.log("受信完了");
@@ -137,15 +141,21 @@ peer.on("connection", (dataConnection) => {
     console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
-    var Uidokeido = new User(Ido, Keido);
-    console.log("クラス変数の経度",User.Lat,"クラス変数の経度",User.Lng)
+    var MyLatLng = new google.maps.LatLng(Ido, Keido);
+    
+    var Options = {
+        zoom: 15,      
+        center: MyLatLng,    
+        // mapTypeId: 'roadmap'
+      };
+
+    var map = new google.maps.Map(document.getElementById('map'), Options);
     var marker = new google.maps.Marker({
         position: MyLatLng,
         map: map,
         // title: "Empire !",
         // animation: google.maps.Animation.BOUNCE
       });
-
     });
 
     // console.log("どっちもは",docchimo);
@@ -156,20 +166,11 @@ peer.on("connection", (dataConnection) => {
     dataConnection.on('error', () => {
     console.log("データチャネルが接続されていません")
   });
-  var MyLatLng = new google.maps.LatLng(User.Lat, User.Lng);
-    
-    var Options = {
-        zoom: 15,      
-        center: MyLatLng,    
-        // mapTypeId: 'roadmap'
-      };
-
-    var map = new google.maps.Map(document.getElementById('map'), Options);
-    
 });
 
 
+
 </script>
-</body>
+  </body>
 </html>
 
