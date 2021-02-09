@@ -132,10 +132,10 @@ peer.on("connection", (dataConnection) => {
     });
 
     dataConnection.on('data', data => {
-    console.log("接続先のPeerからデータを受信しました",data);
+    // console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
-    const dataXY = new Article(Ido,Keido)
+    let dataXY = new Article(Ido,Keido)
     console.log("経度",Ido,"クラス変数緯度",Keido)
 
     });
