@@ -128,6 +128,7 @@ peer.on("connection", (dataConnection) => {
     var Ido = data.ido
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(Ido, Keido);
+    var map = new google.maps.Map(document.getElementById('map'), Options);
 
     var Options = {
         zoom: 15,      
@@ -141,6 +142,8 @@ peer.on("connection", (dataConnection) => {
         title: "Empire !",
         animation: google.maps.Animation.BOUNCE
       });
+
+
 
     });
 
