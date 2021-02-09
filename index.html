@@ -127,14 +127,14 @@ peer.on("connection", (dataConnection) => {
     console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
-    var MyLatLng = new google.maps.LatLng(Ido, Keido);
+    var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
     var map = new google.maps.Map(document.getElementById('map'), Options);
 
-    // var Options = {
-    //     zoom: 15,      
-    //     center: MyLatLng,    
-    //     mapTypeId: 'roadmap'
-    //   };
+    var Options = {
+        zoom: 15,      
+        center: MyLatLng,    
+        mapTypeId: 'roadmap'
+      };
 
     var marker = new google.maps.Marker({
         position: MyLatLng,
