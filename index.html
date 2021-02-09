@@ -129,7 +129,9 @@ peer.on("connection", (dataConnection) => {
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
    
-      for (let step = 0; step < 5; step++) {
+    let i = 0;
+do {
+  i += 1;
     // 値が 0 から 4 まで計 5 回実行される
     const idoconst = Ido;
     const keidoconst = Keido;
@@ -140,7 +142,7 @@ peer.on("connection", (dataConnection) => {
       };
     var map = new google.maps.Map(document.getElementById('map'), Options);
     console.log('マップ更新の処理が行われました');
-    }
+  } while (i < 5);
 
     var marker = new google.maps.Marker({
         position: MyLatLng,
