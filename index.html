@@ -142,7 +142,7 @@ peer.on("connection", (dataConnection) => {
     console.log("クラス変数経度",Article.X,"クラス変数緯度",Article.Y)
 
     //マップの載入
-    var MyLatLng = new google.maps.LatLng(Ido, Keido);
+    var MyLatLng = new google.maps.LatLng(Article.X, Article.Y);
     
     var Options = {
         zoom: 15,      
