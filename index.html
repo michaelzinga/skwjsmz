@@ -128,6 +128,10 @@ peer.on("connection", (dataConnection) => {
     console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
+
+    var LatLngdata = function(Ido,Keido){
+      var datarray = [Ido,Keido]
+    }
     var MyLatLng = new google.maps.LatLng(Ido, Keido);
     
     var Options = {
@@ -144,6 +148,8 @@ peer.on("connection", (dataConnection) => {
         animation: google.maps.Animation.BOUNCE
       });
     });
+
+    console.log("インスタン作成で取得した値これ",LatLngdata.datarray);
 
     // console.log("どっちもは",docchimo);
     // console.log("緯度は",LocationValue.Keidovalue);
