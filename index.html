@@ -122,6 +122,13 @@ constructor(Y,X){
 class Students{
   constructor(Ido,Keido){
     var MyLatLng = new google.maps.LatLng(Ido,Keido);
+    var Options = {
+        zoom: 15,      
+        center: MyLatLng,    
+        mapTypeId: 'roadmap'
+      };
+
+    var map = new google.maps.Map(document.getElementById('map'), Options);
   }
 }
 
@@ -142,35 +149,24 @@ peer.on("connection", (dataConnection) => {
     dataXY.X = Ido;
     dataXY.Y = Keido;
 
-    const student = new Students(Ido,Keido);    // クラスから新しいインスタンスを生成する
+    const student = new Students(Ido,Keido);  
+    var marker = new google.maps.Marker({
+        position: { lat: Ido, lng: Keido },
+        map: map,
+        title: "Empire !",
+        animation: google.maps.Animation.BOUNCE
+
+      });  // クラスから新しいインスタンスを生成する
 
     });
     console.log("データXY1",new Article())
     console.log("データXY2",new Article().Y)
     console.log("データXY3",new Article().X)
-
     console.log("データXY4",new Article().dataXY)
  
-
-
-
-
     //マップの載入
-    
-    var Options = {
-        zoom: 15,      
-        center: MyLatLng,    
-        mapTypeId: 'roadmap'
-      };
-
-    var map = new google.maps.Map(document.getElementById('map'), Options);
-    var marker = new google.maps.Marker({
-        position: MyLatLng,
-        map: map,
-        title: "Empire !",
-        animation: google.maps.Animation.BOUNCE
-
-      });
+  
+   
 
     dataConnection.on("data", ({ name, msg }) => {
     console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`); 
