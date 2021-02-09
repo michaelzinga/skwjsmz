@@ -142,20 +142,6 @@ peer.on("connection", (dataConnection) => {
         animation: google.maps.Animation.BOUNCE
       });
 
-      var trueOnlyFirstTime = (function(Options) {
-      var b = true;
-          return function() {
-          if (b) {
-              b = false;
-              var map = new google.maps.Map(document.getElementById('map'), Options);
-
-              return true;
-            }
-              return false;
-              };
-})();
-
-
     });
 
     // console.log("どっちもは",docchimo);
