@@ -130,11 +130,11 @@ peer.on("connection", (dataConnection) => {
     var MyLatLng = new google.maps.LatLng(Ido, Keido);
     var map = new google.maps.Map(document.getElementById('map'), Options);
 
-    var Options = {
-        zoom: 15,      
-        center: MyLatLng,    
-        mapTypeId: 'roadmap'
-      };
+    // var Options = {
+    //     zoom: 15,      
+    //     center: MyLatLng,    
+    //     mapTypeId: 'roadmap'
+    //   };
 
     var marker = new google.maps.Marker({
         position: MyLatLng,
