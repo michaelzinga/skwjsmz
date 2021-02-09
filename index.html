@@ -123,16 +123,15 @@ peer.on("connection", (dataConnection) => {
     console.log("データチャネルが接続されました")
     });
 
+    
     dataConnection.on('data', data => {
     console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
-   
-    let i = 0;
-do {
-  i += 1;
-  console.log('五回以上処理するなよ！！',i);
+    var flag = true;
+
+  if(flag){flag = false;
     const idoconst = Ido;
     const keidoconst = Keido;
     var Options = {
@@ -142,8 +141,7 @@ do {
       };
     var map = new google.maps.Map(document.getElementById('map'), Options);
     console.log('マップ更新の処理が行われました');
-  } while (i < 5);
-
+    }
     var marker = new google.maps.Marker({
         position: MyLatLng,
         map: map,
