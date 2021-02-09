@@ -142,8 +142,11 @@ peer.on("connection", (dataConnection) => {
 
     });
     console.log("データXY1",new Article())
-    console.log("データXY2",Article.dataXY())
-    console.log("データXY3",Article.dataXY)
+    console.log("データXY2",new Article.dataXY())
+    console.log("データXY3",new Article.dataXY.X())
+    console.log("データXY4",new Article.dataXY.Y())
+
+
 
 
     //マップの載入
