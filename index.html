@@ -127,21 +127,17 @@ peer.on("connection", (dataConnection) => {
     console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
-    console.log("コンストまえ",Ido,Keido)
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
    
+      for (let step = 0; step < 5; step++) {
+    // 値が 0 から 4 まで計 5 回実行される
     const idoconst = Ido;
     const keidoconst = Keido;
-    console.log("コンストあと",idoconst,keidoconst)
-
     var Options = {
         zoom: 15,      
         center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
-
-      for (let step = 0; step < 5; step++) {
-    // 値が 0 から 4 まで計 5 回実行される
     var map = new google.maps.Map(document.getElementById('map'), Options);
     console.log('オプション',Options);
     }
