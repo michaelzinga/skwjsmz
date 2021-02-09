@@ -144,7 +144,11 @@ peer.on("connection", (dataConnection) => {
     console.log("データY",dataXY.Y)
 
     });
-    console.log("データXY",dataXY())
+    console.log("データXY1",Article())
+    console.log("データXY2",Article.dataXY())
+    console.log("データXY3",Article.dataXY)
+
+
 
     //マップの載入
     var MyLatLng = new google.maps.LatLng(Article.X, Article.Y);
