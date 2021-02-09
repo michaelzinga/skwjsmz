@@ -145,18 +145,19 @@ peer.on("connection", (dataConnection) => {
     // console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
-    let dataXY = new Article();
-    dataXY.X = Ido;
-    dataXY.Y = Keido;
-
-    const student = new Students(Ido,Keido);  
     var marker = new google.maps.Marker({
         position: { lat: Ido, lng: Keido },
         map: map,
         title: "Empire !",
         animation: google.maps.Animation.BOUNCE
 
-      });  // クラスから新しいインスタンスを生成する
+      }); 
+    let dataXY = new Article();
+    dataXY.X = Ido;
+    dataXY.Y = Keido;
+
+    const student = new Students(Ido,Keido);  
+    // クラスから新しいインスタンスを生成する
 
     });
     console.log("データXY1",new Article())
