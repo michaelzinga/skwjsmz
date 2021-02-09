@@ -119,8 +119,11 @@ constructor(Y,X){
   this.X = X;
 }
 }
-
-
+class Students{
+  constructor(){
+    var MyLatLng = new google.maps.LatLng(Ido,Keido);
+  }
+}
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
@@ -139,6 +142,7 @@ peer.on("connection", (dataConnection) => {
     dataXY.X = Ido;
     dataXY.Y = Keido;
 
+    const student = new Students();    // クラスから新しいインスタンスを生成する
 
     });
     console.log("データXY1",new Article())
@@ -152,7 +156,6 @@ peer.on("connection", (dataConnection) => {
 
 
     //マップの載入
-    var MyLatLng = new google.maps.LatLng(Ido,Keido);
     
     var Options = {
         zoom: 15,      
