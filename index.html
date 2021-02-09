@@ -140,18 +140,14 @@ peer.on("connection", (dataConnection) => {
     dataXY.Y = Keido;
 
 
-    console.log("データX",dataXY.X)
-    console.log("データY",dataXY.Y)
-
     });
-    console.log("データXY1",Article())
+    console.log("データXY1",new Article())
     console.log("データXY2",Article.dataXY())
     console.log("データXY3",Article.dataXY)
 
 
-
     //マップの載入
-    var MyLatLng = new google.maps.LatLng(Article.X, Article.Y);
+    var MyLatLng = new google.maps.LatLng(Ido,Keido);
     
     var Options = {
         zoom: 15,      
@@ -177,8 +173,6 @@ peer.on("connection", (dataConnection) => {
   });
 
 });
-
-
 
 </script>
   </body>
