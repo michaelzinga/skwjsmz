@@ -120,7 +120,7 @@ constructor(Y,X){
 }
 }
 class Students{
-  constructor(){
+  constructor(Ido,Keido){
     var MyLatLng = new google.maps.LatLng(Ido,Keido);
   }
 }
@@ -142,7 +142,7 @@ peer.on("connection", (dataConnection) => {
     dataXY.X = Ido;
     dataXY.Y = Keido;
 
-    const student = new Students();    // クラスから新しいインスタンスを生成する
+    const student = new Students(Ido,Keido);    // クラスから新しいインスタンスを生成する
 
     });
     console.log("データXY1",new Article())
