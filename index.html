@@ -136,10 +136,10 @@ peer.on("connection", (dataConnection) => {
     var Ido = data.ido
     var Keido = data.keido
     const dataXY = new Article(Ido,Keido)
-    console.log("データコネクション経度",Article.X,"クラス変数緯度",Article.Y)
+    console.log("経度",Ido,"クラス変数緯度",Keido)
 
     });
-    console.log("クラス変数経度",Article.X,"クラス変数緯度",Article.Y)
+    // console.log("クラス変数経度",Article.X,"クラス変数緯度",Article.Y)
 
     //マップの載入
     var MyLatLng = new google.maps.LatLng(Article.X, Article.Y);
