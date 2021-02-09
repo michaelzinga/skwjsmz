@@ -127,8 +127,13 @@ peer.on("connection", (dataConnection) => {
     console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
     var Keido = data.keido
+    console.log("コンストまえ",Ido,Keido)
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
    
+    const idoconst = Ido;
+    const keidoconst = Keido;
+    console.log("コンストあと",idoconst,keidoconst)
+
     var Options = {
         zoom: 15,      
         center: MyLatLng,    
