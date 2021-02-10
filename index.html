@@ -116,8 +116,11 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
-  var x=1;
-
+  var x={
+        zoom: 15,      
+        center: 0,    
+        mapTypeId: 'roadmap'
+      };
 
     console.log("受信完了");
    
@@ -131,14 +134,12 @@ peer.on("connection", (dataConnection) => {
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
  
-   
     var Options = {
         zoom: 15,      
         center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
 　　　　　window.x=Options;
-
 
     var marker = new google.maps.Marker({
         position: MyLatLng,
