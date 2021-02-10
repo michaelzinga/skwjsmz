@@ -111,6 +111,9 @@ peer.on('call', mediaConnection => {
   
   mediaConnection.answer(localStream);
   setEventListener(mediaConnection);
+  var dog = new Dog('きなこ', 'わんわん');
+  console.log(dog.name); // きなこ
+  dog.bark();
 });
 
 
@@ -130,18 +133,18 @@ peer.on("connection", (dataConnection) => {
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
     var flag = true;
-
-  if(flag){flag = false;
-    const idoconst = Ido;
-    const keidoconst = Keido;
     var Options = {
         zoom: 15,      
         center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
-    var map = new google.maps.Map(document.getElementById('map'), Options);
-    // setTimeout(countup, 1000);
-    console.log('マップ更新の処理が行われました');
+
+    function Dog(name, cry) {
+      this.name = name;
+      this.bark = function() {
+        var map = new google.maps.Map(document.getElementById('map'), Options);
+        console.log(cry);
+        };
     }
     
     var marker = new google.maps.Marker({
