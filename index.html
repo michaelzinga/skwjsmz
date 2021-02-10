@@ -128,21 +128,17 @@ peer.on("connection", (dataConnection) => {
     var Ido = data.ido
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
+    var LatLng = new google.maps.LatLng(120, 120);
 
    
     var Options = {
         zoom: 15,      
-        center: MyLatLng,    
+        center: LatLng,    
         mapTypeId: 'roadmap'
       };
 
-      
-    var greeting = toExecutableOnce(function(){
     var map = new google.maps.Map(document.getElementById('map'), Options);    
-      return "world";
-      });
-      
-    
+
     var marker = new google.maps.Marker({
         position: MyLatLng,
         map: map,
@@ -151,19 +147,7 @@ peer.on("connection", (dataConnection) => {
       });
 
     });
-    dataConnection.on('error', () => {
-    console.log("データチャネルが接続されていません")
-    var toExecutableOnce = function(f){
-        var called = false, result = undefined;
-            return function(){
-                if(!called){
-                result = f.apply(this, arguments);
-                called = true;
-                  }   
-                return result;
-            };  
-        };
-  });
+   
 });
 
 
