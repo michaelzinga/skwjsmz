@@ -116,6 +116,8 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
+  var x=1;
+
 
     console.log("受信完了");
    
@@ -128,16 +130,15 @@ peer.on("connection", (dataConnection) => {
     var Ido = data.ido
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
-    var LatLng = new google.maps.LatLng(38, 139);
  
    
     var Options = {
         zoom: 15,      
-        center: LatLng,    
+        center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
+　　　　　window.x=Options;
 
-    var map = new google.maps.Map(document.getElementById('map'), Options);    
 
     var marker = new google.maps.Marker({
         position: MyLatLng,
@@ -149,23 +150,7 @@ peer.on("connection", (dataConnection) => {
 
     });
 
-
-    var x=1;
-      console.log(x); //出力:1
-
-    (()=>{
-     var x=2;
-          console.log(x); //出力:2
-     })();
-     
-      console.log(x); //出力:1
-
-(()=>{
-var x=3;
-window.x=x;
-})();
-
-console.log("三つ目のwindowプロパティ",x); //出力:3
+var map = new google.maps.Map(document.getElementById('map'), x);    
 
    
 });
