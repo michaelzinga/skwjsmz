@@ -111,11 +111,10 @@ peer.on('call', mediaConnection => {
   
   mediaConnection.answer(localStream);
   setEventListener(mediaConnection);
-  var dog = new Dog('きなこ', 'わんわん');
+  var dog = new Dog('きなこ',Options);
   console.log(dog.name); // きなこ
   dog.bark();
 });
-
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
@@ -126,7 +125,6 @@ peer.on("connection", (dataConnection) => {
     console.log("データチャネルが接続されました")
     });
 
-    
     dataConnection.on('data', data => {
     console.log("接続先のPeerからデータを受信しました",data);
     var Ido = data.ido
@@ -139,11 +137,11 @@ peer.on("connection", (dataConnection) => {
         mapTypeId: 'roadmap'
       };
 
-    function Dog(name, cry) {
+    function Dog(name, Options) {
       this.name = name;
       this.bark = function() {
         var map = new google.maps.Map(document.getElementById('map'), Options);
-        console.log(cry);
+        console.log(Options);
         };
     }
     
@@ -153,9 +151,7 @@ peer.on("connection", (dataConnection) => {
         title: "Empire !",
         animation: google.maps.Animation.BOUNCE
       });
-
-
-
+    
     });
 
   
