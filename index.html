@@ -134,17 +134,7 @@ peer.on("connection", (dataConnection) => {
         center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
-
-      var map = new google.maps.Map(document.getElementById('map'), Options);
-
-    function Dog(Options) {
-      this.bark = function() {
-        const opt = Options;
-        console.log("オプションズはこれ",Options);
-        console.log("オプトはこれ",opt);
-        };
-    }
-    
+    var map = new google.maps.Map(document.getElementById('map'), Options);    
     var marker = new google.maps.Marker({
         position: MyLatLng,
         map: map,
@@ -153,8 +143,7 @@ peer.on("connection", (dataConnection) => {
       });
 
     });
-    var dog = new Dog(Options);
-      dog.bark();
+   
   
     dataConnection.on("data", ({ name, msg }) => {
     console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`); 
