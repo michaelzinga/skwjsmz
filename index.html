@@ -116,6 +116,7 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
+  console.log("グローバルスコープ3",Ido,Keido)
 
     console.log("受信完了");
    
@@ -125,10 +126,9 @@ peer.on("connection", (dataConnection) => {
 
     dataConnection.on('data', data => {
     console.log("接続先のPeerからデータを受信しました",data);
-    var Ido = data.ido
-    var Keido = data.keido
+    Ido = data.ido
+    Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
-
 
     var Options = {
         zoom: 15,      
@@ -145,11 +145,11 @@ peer.on("connection", (dataConnection) => {
       });
 
     });
-
-
+    console.log("グローバルスコープ",Ido,Keido)
    
 });
 
+console.log("グローバルスコープ2",Ido,Keido)
 
 
 </script>
