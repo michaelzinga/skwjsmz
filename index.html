@@ -116,11 +116,7 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
-  var x={
-        zoom: 15,      
-        center: 0,    
-        mapTypeId: 'roadmap'
-      };
+  var x=1;
 
     console.log("受信完了");
    
@@ -139,7 +135,8 @@ peer.on("connection", (dataConnection) => {
         center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
-　　　　　window.x=Options;
+      var hachi = 8;
+　　　　　window.x=hachi;
 
     var marker = new google.maps.Marker({
         position: MyLatLng,
