@@ -116,7 +116,19 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
+  
   var x=1;
+console.log("これこれ１",x); //出力:1
+(()=>{
+var x=2;
+console.log(x); //出力:2
+})();
+console.log(x); //出力:1
+(()=>{
+var x=3;
+window.x=x;
+})();
+console.log("これこれ",x); //出力:3
 
     console.log("受信完了");
    
