@@ -116,19 +116,7 @@ peer.on('call', mediaConnection => {
 
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
-  
-  var x=1;
-console.log("これこれ１",x); //出力:1
-(()=>{
-var x=2;
-console.log(x); //出力:2
-})();
-console.log(x); //出力:1
-(()=>{
-var x=3;
-window.x=x;
-})();
-console.log("これこれ",x); //出力:3
+
 
     console.log("受信完了");
    
@@ -138,8 +126,7 @@ console.log("これこれ",x); //出力:3
 
     dataConnection.on('data', data => {
     console.log("接続先のPeerからデータを受信しました",data);
-    var Ido = data.ido
-    var Keido = data.keido
+    
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
  
     var Options = {
@@ -159,7 +146,10 @@ console.log("これこれ",x); //出力:3
       });
 
     });
-    console.log("Xはこれだよ",x)
+    var Ido = data.ido
+    var Keido = data.keido
+
+    console.log("Xはこれだよ",Ido)
 
 var map = new google.maps.Map(document.getElementById('map'), x);    
 
