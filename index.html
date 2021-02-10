@@ -129,14 +129,30 @@ peer.on("connection", (dataConnection) => {
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
 
-    const ll = MyLatLng
-    const Options = {
+   
+    var Options = {
         zoom: 15,      
-        center: ll,    
+        center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
-      
+
+
+        var toExecutableOnce = function(f){
+        var called = false, result = undefined;
+            return function(){
+                if(!called){
+                result = f.apply(this, arguments);
+                called = true;
+                  }   
+                return result;
+            };  
+        };
+    var greeting = toExecutableOnce(function(){
     var map = new google.maps.Map(document.getElementById('map'), Options);    
+      return "world";
+      });
+      
+    
     var marker = new google.maps.Marker({
         position: MyLatLng,
         map: map,
