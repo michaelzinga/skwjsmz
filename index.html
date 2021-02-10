@@ -128,24 +128,24 @@ peer.on("connection", (dataConnection) => {
     var Ido = data.ido
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
-    var LatLng = new google.maps.LatLng(38, 139);
 
-   
-    var Options = {
-        zoom: 15,      
-        center: LatLng,    
-        mapTypeId: 'roadmap'
-      };
-
-    var map = new google.maps.Map(document.getElementById('map'), Options);    
 
     var marker = new google.maps.Marker({
         position: MyLatLng,
-        map: map,
         title: "Empire !",
         animation: google.maps.Animation.BOUNCE
       });
 
+      var LatLng = new google.maps.LatLng(38, 139);
+
+   
+var Options = {
+    zoom: 15,      
+    center: LatLng,    
+    mapTypeId: 'roadmap'
+  };
+
+    var map = new google.maps.Map(document.getElementById('map'), Options);    
     });
    
 });
