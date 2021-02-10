@@ -117,7 +117,6 @@ peer.on('call', mediaConnection => {
 peer.on("connection", (dataConnection) => {
   setEventListener(dataConnection);
 
-
     console.log("受信完了");
    
     dataConnection.on('open', () => {
@@ -129,18 +128,14 @@ peer.on("connection", (dataConnection) => {
     var Ido = data.ido
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
-    const func = () => {
-    hello = "Hello World!";
-    };
+
 
     var Options = {
         zoom: 15,      
         center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
-      var hachi = 8;
-　　　　　window.x=hachi;
-
+    var map = new google.maps.Map(document.getElementById('map'), x);    
     var marker = new google.maps.Marker({
         position: MyLatLng,
         map: map,
@@ -150,10 +145,7 @@ peer.on("connection", (dataConnection) => {
       });
 
     });
-    func();
-console.log(hello);
 
-var map = new google.maps.Map(document.getElementById('map'), x);    
 
    
 });
