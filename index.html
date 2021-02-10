@@ -129,11 +129,12 @@ peer.on("connection", (dataConnection) => {
     var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
     var flag = true;
-    var Options = {
+    const Options = {
         zoom: 15,      
         center: MyLatLng,    
         mapTypeId: 'roadmap'
       };
+      
     var map = new google.maps.Map(document.getElementById('map'), Options);    
     var marker = new google.maps.Marker({
         position: MyLatLng,
