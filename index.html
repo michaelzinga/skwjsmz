@@ -135,11 +135,13 @@ peer.on("connection", (dataConnection) => {
         mapTypeId: 'roadmap'
       };
 
-    function Dog(name, Options) {
-      this.name = name;
+      var map = new google.maps.Map(document.getElementById('map'), Options);
+
+    function Dog(Options) {
       this.bark = function() {
-        var map = new google.maps.Map(document.getElementById('map'), Options);
-        console.log(Options);
+        const opt = Options;
+        console.log("オプションズはこれ",Options);
+        console.log("オプトはこれ",opt);
         };
     }
     
@@ -151,8 +153,7 @@ peer.on("connection", (dataConnection) => {
       });
 
     });
-    var dog = new Dog('きなこ',Options);
-      console.log(dog.name); // きなこ
+    var dog = new Dog(Options);
       dog.bark();
   
     dataConnection.on("data", ({ name, msg }) => {
