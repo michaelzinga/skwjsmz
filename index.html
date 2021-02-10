@@ -126,9 +126,13 @@ peer.on("connection", (dataConnection) => {
 
     dataConnection.on('data', data => {
     console.log("接続先のPeerからデータを受信しました",data);
-    
+    var Ido = data.ido
+    var Keido = data.keido
     var MyLatLng = new google.maps.LatLng(data.ido, data.keido);
- 
+    const func = () => {
+    hello = "Hello World!";
+    };
+
     var Options = {
         zoom: 15,      
         center: MyLatLng,    
@@ -146,10 +150,8 @@ peer.on("connection", (dataConnection) => {
       });
 
     });
-    var Ido = data.ido
-    var Keido = data.keido
-
-    console.log("Xはこれだよ",Ido)
+    func();
+console.log(hello);
 
 var map = new google.maps.Map(document.getElementById('map'), x);    
 
