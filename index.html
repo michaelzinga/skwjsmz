@@ -143,11 +143,6 @@ peer.on("connection", (dataConnection) => {
       });
 
     });
-   
-  
-    dataConnection.on("data", ({ name, msg }) => {
-    console.log("データコネクションで受け取ったデータ",`${name}: ${msg}`); 
-    });
     dataConnection.on('error', () => {
     console.log("データチャネルが接続されていません")
   });
