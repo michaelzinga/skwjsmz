@@ -9,9 +9,6 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
   const localId = document.getElementById('js-local-id');
-  const localId2 = document.getElementById('js-local-id2');
-  const localId3 = document.getElementById('js-local-id3');
-
   const callTrigger = document.getElementById('js-call-trigger');
   const closeTrigger = document.getElementById('js-close-trigger');
   const remoteVideo = document.getElementById('js-remote-stream');
@@ -73,8 +70,6 @@ const peer = new Peer({key: 'ebd5349b-10aa-4435-8de0-0b2f303e88d7'});
   });
 
   peer.once('open', id => (localId.textContent = id));
-  peer.once('open', id => (localId2.textContent = id));
-  peer.once('open', id => (localId3.textContent = id));
 
   // Register callee handler
   peer.on('call', mediaConnection => {
